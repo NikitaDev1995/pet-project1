@@ -17,6 +17,8 @@ class DictionaryTableViewController: UITableViewController {
         tableView.register(nib, forCellReuseIdentifier: "DictionaryCell")
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
+        
+        tabBarItem.title = NSLocalizedString("TabBarController.BarItem.Title", comment: "")
     }
 }
 
