@@ -20,6 +20,10 @@ class DictionaryTableViewController: UITableViewController {
         
         tabBarItem.title = NSLocalizedString("TabBarController.BarItem.Title", comment: "")
     }
+    
+    @IBAction func unwindDictionaryTableViewController(segue: UIStoryboardSegue) {
+        
+    }
 }
 
 //MARK: - Extension DictionaryTableViewController (UITableVIewDelegate, UITableViewDataSource)
