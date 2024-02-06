@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+  TrainEnglishApp
+
+  Created by Nikita Skripka on 06.02.2024.
+  
+*/
+"TabBarController.BarItem.Title" = "Dictionary";
