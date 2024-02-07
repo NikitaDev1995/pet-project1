@@ -34,7 +34,12 @@ class DictionaryTableViewController: UITableViewController {
     func fetchWords() {
         //Fetch the data from CoreData to display in tableview
         do {
-            words = try AppDelegate.context.fetch(WordEntity.fetchRequest())
+            //Sort the tableview
+            let request = WordEntity.fetchRequest() as NSFetchRequest<WordEntity>
+            let sortEnglishWord = NSSortDescriptor(key: "englishWord", ascending: true)
+            request.sortDescriptors = [sortEnglishWord]
+            
+            words = try AppDelegate.context.fetch(request)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
