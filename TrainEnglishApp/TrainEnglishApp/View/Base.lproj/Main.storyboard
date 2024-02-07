@@ -46,14 +46,14 @@
                             <tableViewSection headerTitle="English word" id="Eo9-7M-z76">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FmW-44-6xT">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="45.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="45.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FmW-44-6xT" id="0tv-mV-ylE">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iS-gL-88j">
-                                                    <rect key="frame" x="8" y="7.9999999999999982" width="377" height="29.333333333333329"/>
+                                                    <rect key="frame" x="8" y="8.0000000000000018" width="377" height="29.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -71,14 +71,14 @@
                             <tableViewSection headerTitle="Russian word" id="1ml-1K-hPj">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sJQ-i0-tSi">
-                                        <rect key="frame" x="0.0" y="173.33333206176758" width="393" height="45"/>
+                                        <rect key="frame" x="0.0" y="173.66666793823242" width="393" height="45.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sJQ-i0-tSi" id="Pje-sN-FC8">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SB3-7m-T1I">
-                                                    <rect key="frame" x="8" y="8" width="377" height="29"/>
+                                                    <rect key="frame" x="8" y="7.9999999999999982" width="377" height="29.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -111,6 +111,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="englishWordTextFieldOutlet" destination="4iS-gL-88j" id="O6p-Qc-hLq"/>
+                        <outlet property="russianWordTextFieldOutlet" destination="SB3-7m-T1I" id="jyZ-yr-qSs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JPX-Ns-KJQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
