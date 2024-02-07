@@ -20,10 +20,10 @@ class AddEditWordTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let word {
+            englishWordTextFieldOutlet.text = word.englishWord
+            russianWordTextFieldOutlet.text = word.russianWord
+        }
     }
 
-    @IBAction func saveWordButtonAction(_ sender: UIBarButtonItem) {
-        self.navigationController?.dismiss(animated: true)
-    }
-    
 }

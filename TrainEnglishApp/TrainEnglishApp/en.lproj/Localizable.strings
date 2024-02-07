@@ -6,3 +6,4 @@
   
 */
 "TabBarController.BarItem.Title" = "Dictionary";
+"DictionaryTableViewController.TralingSwipe.DeleteButton" = "Delete";

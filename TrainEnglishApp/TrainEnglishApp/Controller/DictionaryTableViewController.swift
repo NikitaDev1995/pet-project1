@@ -9,17 +9,16 @@ import UIKit
 import CoreData
 
 class DictionaryTableViewController: UITableViewController {
-
+    
     //MARK: - Properites
-    //Reference to managed object context
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     //Data for the table
     var words: [WordEntity]?
     
     //MARK: - Life scene cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let nib = UINib(nibName: "DictionaryTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "DictionaryCell")
         tableView.estimatedRowHeight = 44
@@ -35,7 +34,7 @@ class DictionaryTableViewController: UITableViewController {
     func fetchWords() {
         //Fetch the data from CoreData to display in tableview
         do {
-          words = try context.fetch(WordEntity.fetchRequest())
+            words = try AppDelegate.context.fetch(WordEntity.fetchRequest())
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -47,13 +46,41 @@ class DictionaryTableViewController: UITableViewController {
     }
     
     @IBAction func unwindDictionaryTableViewController(segue: UIStoryboardSegue) {
-        
+        guard segue.identifier == "SaveWord" else {return}
+        let sourceViewController = segue.source as! AddEditWordTableViewController
+        //Change the existing word
+        if var word = sourceViewController.word {
+            word.englishWord = sourceViewController.englishWordTextFieldOutlet.text
+            word.russianWord = sourceViewController.russianWordTextFieldOutlet.text
+            //Save the data
+            do {
+                try AppDelegate.context.save()
+            }
+            catch {
+                
+            }
+            //Re-fetch the data
+            fetchWords()
+        } else {
+            //Create the new word
+            let newWord = WordEntity(context: AppDelegate.context)
+            newWord.englishWord = sourceViewController.englishWordTextFieldOutlet.text
+            newWord.russianWord = sourceViewController.russianWordTextFieldOutlet.text
+            //Save the data
+            do {
+                try AppDelegate.context.save()
+            } catch {
+                
+            }
+            //Re-fetch the data
+            fetchWords()
+        }
     }
 }
 
 //MARK: - Extension DictionaryTableViewController (UITableVIewDelegate, UITableViewDataSource)
 extension DictionaryTableViewController {
-    // MARK: - Table view data source
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return words?.count ?? 0
     }
@@ -65,5 +92,33 @@ extension DictionaryTableViewController {
         cell?.russianWordOutlet.text = word?.russianWord
         
         return cell ?? UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let word = words![indexPath.row]
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let addEditTableViewController = storyboard.instantiateViewController(identifier: "AddEditWordTableViewController") as? AddEditWordTableViewController
+        addEditTableViewController?.word = word
+        self.navigationController?.pushViewController(addEditTableViewController ?? UITableViewController(), animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath:IndexPath) -> UISwipeActionsConfiguration? {
+        let tralingSwipeAction = UIContextualAction(style: .destructive, title: NSLocalizedString("DictionaryTableViewController.TralingSwipe.DeleteButton", comment: "")) { action, view, completionHandler in
+            //Witch word to remove
+            let wordToRemove = self.words![indexPath.row]
+            //Remove the word
+            AppDelegate.context.delete(wordToRemove)
+            //Save the data
+            do{
+                try AppDelegate.context.save()
+            }
+            catch {
+                
+            }
+            //Re-fetch the data
+            self.fetchWords()
+        }
+        return UISwipeActionsConfiguration(actions: [tralingSwipeAction])
     }
 }

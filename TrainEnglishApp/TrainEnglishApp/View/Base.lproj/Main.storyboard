@@ -24,7 +24,7 @@
                     <navigationItem key="navigationItem" title="Dictionary" id="2oY-J2-SEW">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Q8N-DO-nME">
                             <connections>
-                                <segue destination="9ih-jQ-vUw" kind="presentation" id="dIK-wd-uy9"/>
+                                <segue destination="9ih-jQ-vUw" kind="presentation" identifier="" id="dIK-wd-uy9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -46,14 +46,14 @@
                             <tableViewSection headerTitle="English word" id="Eo9-7M-z76">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FmW-44-6xT">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="45.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FmW-44-6xT" id="0tv-mV-ylE">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iS-gL-88j">
-                                                    <rect key="frame" x="8" y="8.0000000000000018" width="377" height="29.666666666666671"/>
+                                                    <rect key="frame" x="8" y="8" width="377" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -71,14 +71,14 @@
                             <tableViewSection headerTitle="Russian word" id="1ml-1K-hPj">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sJQ-i0-tSi">
-                                        <rect key="frame" x="0.0" y="173.66666793823242" width="393" height="45.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="173" width="393" height="45.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sJQ-i0-tSi" id="Pje-sN-FC8">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SB3-7m-T1I">
-                                                    <rect key="frame" x="8" y="7.9999999999999982" width="377" height="29.333333333333329"/>
+                                                    <rect key="frame" x="8" y="8.0000000000000018" width="377" height="29.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -102,12 +102,12 @@
                     <navigationItem key="navigationItem" id="7bS-w0-ipB">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="gBw-DP-cn1">
                             <connections>
-                                <segue destination="E95-oY-f1T" kind="unwind" unwindAction="unwindDictionaryTableViewControllerWithSegue:" id="35q-o1-HU8"/>
+                                <segue destination="E95-oY-f1T" kind="unwind" unwindAction="unwindDictionaryTableViewControllerWithSegue:" id="C1s-ZQ-gtm"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="Eas-f3-2ac">
                             <connections>
-                                <action selector="saveWordButtonAction:" destination="xqL-h0-tJM" id="IkU-pb-Fcs"/>
+                                <segue destination="E95-oY-f1T" kind="unwind" identifier="SaveWord" unwindAction="unwindDictionaryTableViewControllerWithSegue:" id="UNc-Eu-Ez4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
