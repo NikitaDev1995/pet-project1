@@ -15,6 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="U1Z-mZ-6Ds">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="HLx-Bo-TP9" id="vmF-oO-ZJR"/>
+                            </connections>
+                        </searchBar>
                         <connections>
                             <outlet property="dataSource" destination="HLx-Bo-TP9" id="h8F-0W-Dgz"/>
                             <outlet property="delegate" destination="HLx-Bo-TP9" id="wkG-Cq-bU3"/>
@@ -28,6 +36,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBarOutlet" destination="U1Z-mZ-6Ds" id="bbg-kw-b0a"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6p-n4-1GL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="E95-oY-f1T" userLabel="Exit" sceneMemberID="exit"/>
@@ -46,14 +57,14 @@
                             <tableViewSection headerTitle="English word" id="Eo9-7M-z76">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FmW-44-6xT">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="45"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="45.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FmW-44-6xT" id="0tv-mV-ylE">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iS-gL-88j">
-                                                    <rect key="frame" x="8" y="8" width="377" height="29"/>
+                                                    <rect key="frame" x="8" y="8.0000000000000018" width="377" height="29.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -71,14 +82,14 @@
                             <tableViewSection headerTitle="Russian word" id="1ml-1K-hPj">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sJQ-i0-tSi">
-                                        <rect key="frame" x="0.0" y="173" width="393" height="45.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="173.66666793823242" width="393" height="45.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sJQ-i0-tSi" id="Pje-sN-FC8">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SB3-7m-T1I">
-                                                    <rect key="frame" x="8" y="8.0000000000000018" width="377" height="29.666666666666671"/>
+                                                    <rect key="frame" x="8" y="7.9999999999999982" width="377" height="29.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
