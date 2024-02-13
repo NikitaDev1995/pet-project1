@@ -10,10 +10,15 @@ import CoreData
 
 class DictionaryTableViewController: UITableViewController {
     
-    //MARK: - Properites
+    //MARK: - @IBOutlets
     
+    @IBOutlet weak var searchBarOutlet: UISearchBar!
+    
+    //MARK: - Properites
     //Data for the table
-    var words: [WordEntity]?
+    private var words: [WordEntity] = []
+    private var filteredWords: [WordEntity] = []
+    private var isSearching: Bool = false
     
     //MARK: - Life scene cycle
     override func viewDidLoad() {
@@ -26,6 +31,7 @@ class DictionaryTableViewController: UITableViewController {
         
         tabBarItem.title = NSLocalizedString("TabBarController.BarItem.Title", comment: "")
         
+        searchBarOutlet.delegate = self
         //Get items from CoreData
         fetchWords()
     }
@@ -54,7 +60,7 @@ class DictionaryTableViewController: UITableViewController {
         guard segue.identifier == "SaveWord" else {return}
         let sourceViewController = segue.source as! AddEditWordTableViewController
         //Change the existing word
-        if var word = sourceViewController.word {
+        if let word = sourceViewController.word {
             word.englishWord = sourceViewController.englishWordTextFieldOutlet.text
             word.russianWord = sourceViewController.russianWordTextFieldOutlet.text
             //Save the data
@@ -85,22 +91,31 @@ class DictionaryTableViewController: UITableViewController {
 
 //MARK: - Extension DictionaryTableViewController (UITableVIewDelegate, UITableViewDataSource)
 extension DictionaryTableViewController {
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return words?.count ?? 0
+        return isSearching ? filteredWords.count : words.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DictionaryCell", for: indexPath) as? DictionaryTableViewCell
-        let word = words?[indexPath.row]
-        cell?.englishWordOutlet.text = word?.englishWord
-        cell?.russianWordOutlet.text = word?.russianWord
         
-        return cell ?? UITableViewCell()
+        if isSearching {
+            let filteredWord = filteredWords[indexPath.row]
+            
+            cell?.englishWordOutlet.text = filteredWord.englishWord
+            cell?.russianWordOutlet.text = filteredWord.russianWord
+            return cell ?? UITableViewCell()
+        } else {
+            let word = words[indexPath.row]
+            
+            cell?.englishWordOutlet.text = word.englishWord
+            cell?.russianWordOutlet.text = word.russianWord
+            return cell ?? UITableViewCell()
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let word = words![indexPath.row]
+        let word = words[indexPath.row]
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let addEditTableViewController = storyboard.instantiateViewController(identifier: "AddEditWordTableViewController") as? AddEditWordTableViewController
@@ -111,7 +126,7 @@ extension DictionaryTableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath:IndexPath) -> UISwipeActionsConfiguration? {
         let tralingSwipeAction = UIContextualAction(style: .destructive, title: NSLocalizedString("DictionaryTableViewController.TralingSwipe.DeleteButton", comment: "")) { action, view, completionHandler in
             //Witch word to remove
-            let wordToRemove = self.words![indexPath.row]
+            let wordToRemove = self.words[indexPath.row]
             //Remove the word
             AppDelegate.context.delete(wordToRemove)
             //Save the data
@@ -125,5 +140,31 @@ extension DictionaryTableViewController {
             self.fetchWords()
         }
         return UISwipeActionsConfiguration(actions: [tralingSwipeAction])
+    }
+}
+
+//MARK: - Extension DictionaryTableViewController (UISearchBarDelegate)
+extension DictionaryTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filteredWords.removeAll()
+        
+        guard searchText != "" || searchText != " " else {return}
+        
+        if searchBar.text == "" || searchBar.text == " " {
+            isSearching = false
+            tableView.reloadData()
+        } else {
+            isSearching = true
+            let searchText = searchBar.text ?? ""
+            filteredWords = words.filter { word in
+                return word.russianWord!.lowercased().contains(searchText.lowercased()) ||
+                word.englishWord!.lowercased().contains(searchText.lowercased())
+            }
+            tableView.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 }
