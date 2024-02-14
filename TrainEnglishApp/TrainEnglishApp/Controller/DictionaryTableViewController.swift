@@ -37,7 +37,7 @@ class DictionaryTableViewController: UITableViewController {
     }
     
     //MARK: - Methods
-    func fetchWords() {
+    private func fetchWords() {
         //Fetch the data from CoreData to display in tableview
         do {
             //Sort the tableview
@@ -63,6 +63,13 @@ class DictionaryTableViewController: UITableViewController {
         if let word = sourceViewController.word {
             word.englishWord = sourceViewController.englishWordTextFieldOutlet.text
             word.russianWord = sourceViewController.russianWordTextFieldOutlet.text
+            word.wordLevel = sourceViewController.englishLevelWordSegmentedControllerOutlet.titleForSegment(at: sourceViewController.englishLevelWordSegmentedControllerOutlet.selectedSegmentIndex)
+            if let image = sourceViewController.wordImageViewOutlet.image {
+                if let imageData = image.pngData() {
+                    word.wordImage = imageData
+                }
+            }
+
             //Save the data
             do {
                 try AppDelegate.context.save()
@@ -77,6 +84,12 @@ class DictionaryTableViewController: UITableViewController {
             let newWord = WordEntity(context: AppDelegate.context)
             newWord.englishWord = sourceViewController.englishWordTextFieldOutlet.text
             newWord.russianWord = sourceViewController.russianWordTextFieldOutlet.text
+            newWord.wordLevel = sourceViewController.englishLevelWordSegmentedControllerOutlet.titleForSegment(at: sourceViewController.englishLevelWordSegmentedControllerOutlet.selectedSegmentIndex)
+            if let image = sourceViewController.wordImageViewOutlet.image {
+                if let imageData = image.pngData() {
+                    newWord.wordImage = imageData
+                }
+            }
             //Save the data
             do {
                 try AppDelegate.context.save()
@@ -104,12 +117,14 @@ extension DictionaryTableViewController {
             
             cell?.englishWordOutlet.text = filteredWord.englishWord
             cell?.russianWordOutlet.text = filteredWord.russianWord
+            cell?.englishWordLevelOutlet.text = filteredWord.wordLevel
             return cell ?? UITableViewCell()
         } else {
             let word = words[indexPath.row]
             
             cell?.englishWordOutlet.text = word.englishWord
             cell?.russianWordOutlet.text = word.russianWord
+            cell?.englishWordLevelOutlet.text = word.wordLevel
             return cell ?? UITableViewCell()
         }
     }
@@ -145,6 +160,7 @@ extension DictionaryTableViewController {
 
 //MARK: - Extension DictionaryTableViewController (UISearchBarDelegate)
 extension DictionaryTableViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.filteredWords.removeAll()
         

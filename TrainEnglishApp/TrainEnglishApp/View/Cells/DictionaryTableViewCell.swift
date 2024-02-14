@@ -13,4 +13,5 @@ class DictionaryTableViewCell: UITableViewCell {
     @IBOutlet weak var englishWordOutlet: UILabel!
     @IBOutlet weak var russianWordOutlet: UILabel!
     
+    @IBOutlet weak var englishWordLevelOutlet: UILabel!
 }

@@ -7,3 +7,9 @@
 */
 "TabBarController.BarItem.Title" = "Словарь";
 "DictionaryTableViewController.TralingSwipe.DeleteButton" = "Удалить";
+"AddEditWordTableViewController.NavigationItem.TitleForEditWord" = "Слово";
+"AddEditWordTableViewController.NavigationItem.TitleNewWord" = "Новое слово";
+"AddEditWordTableViewController.AddImageButtonAction.AlertController.Title" = "Выберите источник изображения";
+"AddEditWordTableViewController.AddImageButtonAction.AlertAction.CameraAction" = "Камера";
+"AddEditWordTableViewController.AddImageButtonAction.AlertAction.photoLibraryAction" = "Фото библиотека";
+"AddEditWordTableViewController.AddImageButtonAction.AlertAction.cancelAction" = "Отмена";
