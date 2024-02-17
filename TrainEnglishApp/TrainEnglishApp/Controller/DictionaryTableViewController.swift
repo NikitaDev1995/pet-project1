@@ -38,9 +38,9 @@ class DictionaryTableViewController: UITableViewController {
     
     //MARK: - Methods
     private func fetchWords() {
-        //Fetch the data from CoreData to display in tableview
+        //Получаем данные из базы данных CoreData и отображаем в таблице
         do {
-            //Sort the tableview
+            //Сортируем таблицу в английском алфавитном порядке
             let request = WordEntity.fetchRequest() as NSFetchRequest<WordEntity>
             let sortEnglishWord = NSSortDescriptor(key: "englishWord", ascending: true)
             request.sortDescriptors = [sortEnglishWord]
@@ -59,7 +59,7 @@ class DictionaryTableViewController: UITableViewController {
     @IBAction func unwindDictionaryTableViewController(segue: UIStoryboardSegue) {
         guard segue.identifier == "SaveWord" else {return}
         let sourceViewController = segue.source as! AddEditWordTableViewController
-        //Change the existing word
+        //Изменяем существующее слово
         if let word = sourceViewController.word {
             word.englishWord = sourceViewController.englishWordTextFieldOutlet.text
             word.russianWord = sourceViewController.russianWordTextFieldOutlet.text
@@ -70,17 +70,17 @@ class DictionaryTableViewController: UITableViewController {
                 }
             }
 
-            //Save the data
+            //Сохраняем данные
             do {
                 try AppDelegate.context.save()
             }
             catch {
                 
             }
-            //Re-fetch the data
+            //Обновляем данные
             fetchWords()
         } else {
-            //Create the new word
+            //Создаем новое слово
             let newWord = WordEntity(context: AppDelegate.context)
             newWord.englishWord = sourceViewController.englishWordTextFieldOutlet.text
             newWord.russianWord = sourceViewController.russianWordTextFieldOutlet.text
@@ -90,13 +90,13 @@ class DictionaryTableViewController: UITableViewController {
                     newWord.wordImage = imageData
                 }
             }
-            //Save the data
+            //Сохраняем данные
             do {
                 try AppDelegate.context.save()
             } catch {
                 
             }
-            //Re-fetch the data
+            //Обновляем данные
             fetchWords()
         }
     }
@@ -140,18 +140,18 @@ extension DictionaryTableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath:IndexPath) -> UISwipeActionsConfiguration? {
         let tralingSwipeAction = UIContextualAction(style: .destructive, title: NSLocalizedString("DictionaryTableViewController.TralingSwipe.DeleteButton", comment: "")) { action, view, completionHandler in
-            //Witch word to remove
+            //Определяем какое слово подлежит удалению из таблицы по свайпу
             let wordToRemove = self.words[indexPath.row]
-            //Remove the word
+            //Удаляем слово
             AppDelegate.context.delete(wordToRemove)
-            //Save the data
+            //Сохраняем данные
             do{
                 try AppDelegate.context.save()
             }
             catch {
                 
             }
-            //Re-fetch the data
+            //Обновляем данные
             self.fetchWords()
         }
         return UISwipeActionsConfiguration(actions: [tralingSwipeAction])

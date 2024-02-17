@@ -6,9 +6,21 @@
   
 */
 "TabBarController.BarItem.Title" = "Dictionary";
+
 "DictionaryTableViewController.TralingSwipe.DeleteButton" = "Delete";
-"AddEditWordTableViewController.NavigationItem.TitleForEditWord" = "Word";
-"AddEditWordTableViewController.NavigationItem.TitleNewWord" = "New Word";
+
+"AddEditWordTableViewController.NavigationItem.TitleForEditWord" = "New word";
+"AddEditWordTableViewController.NavigationItem.TitleNewWord" = "Editing word";
+"AddEditWordTableViewController.NavigationItem.CancelButton" = "Cancel";
+"AddEditWordTableViewController.NavigationItem.SaveButton" = "Save";
+"AddEditWordTableViewController.TableView.TitleForHeader.section[0]" = "English word";
+"AddEditWordTableViewController.TableView.TitleForHeader.section[1]" = "Russian word";
+"AddEditWordTableViewController.TableView.TitleForHeader.section[2]" = "English level word";
+"AddEditWordTableViewController.TableView.TitleForHeader.section[3]" = "Image for word";
+"AddEditWordTableViewController.TableView.TitleForHeader.section[4]" = "Chose the image";
+"AddEditWordTableViewController.TableView.EnglishWordTextFieldOutlet.Placeholder" = "English word";
+"AddEditWordTableViewController.TableView.RussianWordTextFieldOutlet.Placeholder" = "Russian word";
+"AddEditWordTableViewController.AddImageButtonAction.Title.Text" = "Add the image";
 "AddEditWordTableViewController.AddImageButtonAction.AlertController.Title" = "Choose Image Source";
 "AddEditWordTableViewController.AddImageButtonAction.AlertAction.CameraAction" = "Camera";
 "AddEditWordTableViewController.AddImageButtonAction.AlertAction.photoLibraryAction" = "Photo Library";

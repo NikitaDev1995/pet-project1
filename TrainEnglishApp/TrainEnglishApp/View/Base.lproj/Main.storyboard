@@ -67,6 +67,9 @@
                                                     <rect key="frame" x="8" y="7.9999999999999982" width="377" height="29.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="xqL-h0-tJM" eventType="editingDidEnd" id="vlF-zi-QrQ"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -92,6 +95,9 @@
                                                     <rect key="frame" x="8" y="8" width="377" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="xqL-h0-tJM" eventType="editingDidEnd" id="scP-bw-vOi"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -150,7 +156,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfN-jp-7xM">
                                                     <rect key="frame" x="121.66666666666669" y="25" width="150" height="150"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown" translatesAutoresizingMaskIntoConstraints="NO" id="yGy-Eg-s3j">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown" translatesAutoresizingMaskIntoConstraints="NO" id="yGy-Eg-s3j">
                                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
@@ -223,9 +229,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addImageButtonOutlet" destination="7Ps-5r-ssL" id="HfD-hI-qg6"/>
                         <outlet property="englishLevelWordSegmentedControllerOutlet" destination="2wu-Bn-hgw" id="4fZ-pT-3LX"/>
                         <outlet property="englishWordTextFieldOutlet" destination="4iS-gL-88j" id="O6p-Qc-hLq"/>
                         <outlet property="russianWordTextFieldOutlet" destination="SB3-7m-T1I" id="jyZ-yr-qSs"/>
+                        <outlet property="saveButtonOutlet" destination="Eas-f3-2ac" id="est-Ds-IfQ"/>
+                        <outlet property="viewForWordImageViewOutlet" destination="AfN-jp-7xM" id="g4y-ub-z7P"/>
                         <outlet property="wordImageViewOutlet" destination="yGy-Eg-s3j" id="fMn-UG-9u5"/>
                     </connections>
                 </tableViewController>

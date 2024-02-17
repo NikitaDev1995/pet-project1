@@ -6,9 +6,21 @@
   
 */
 "TabBarController.BarItem.Title" = "Словарь";
+
 "DictionaryTableViewController.TralingSwipe.DeleteButton" = "Удалить";
-"AddEditWordTableViewController.NavigationItem.TitleForEditWord" = "Слово";
+
+"AddEditWordTableViewController.NavigationItem.TitleForEditWord" = "Редактируемое слово";
 "AddEditWordTableViewController.NavigationItem.TitleNewWord" = "Новое слово";
+"AddEditWordTableViewController.NavigationItem.CancelButton" = "Отмена";
+"AddEditWordTableViewController.NavigationItem.SaveButton" = "Сохранить";
+"AddEditWordTableViewController.TableView.TitleForHeader.section[0]" = "Английское слово";
+"AddEditWordTableViewController.TableView.TitleForHeader.section[1]" = "Русское слово";
+"AddEditWordTableViewController.TableView.TitleForHeader.section[2]" = "Уровень английского слова";
+"AddEditWordTableViewController.TableView.TitleForHeader.section[3]" = "Изображение для слова";
+"AddEditWordTableViewController.TableView.TitleForHeader.section[4]" = "Выбрать изображение";
+"AddEditWordTableViewController.TableView.EnglishWordTextFieldOutlet.Placeholder" = "Английское слово";
+"AddEditWordTableViewController.TableView.RussianWordTextFieldOutlet.Placeholder" = "Русское слово";
+"AddEditWordTableViewController.AddImageButtonAction.Title.Text" = "Добавить изображение";
 "AddEditWordTableViewController.AddImageButtonAction.AlertController.Title" = "Выберите источник изображения";
 "AddEditWordTableViewController.AddImageButtonAction.AlertAction.CameraAction" = "Камера";
 "AddEditWordTableViewController.AddImageButtonAction.AlertAction.photoLibraryAction" = "Фото библиотека";
