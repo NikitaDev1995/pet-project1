@@ -5,7 +5,9 @@
   Created by Nikita Skripka on 06.02.2024.
   
 */
-"TabBarController.BarItem.Title" = "Dictionary";
+
+"TabBarController.BarItem[0].Title" = "Audit";
+"TabBarController.BarItem[1].Title" = "Dictionary";
 
 "DictionaryTableViewController.TralingSwipe.DeleteButton" = "Delete";
 

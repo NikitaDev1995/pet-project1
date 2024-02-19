@@ -29,10 +29,8 @@ class DictionaryTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
         
-        tabBarItem.title = NSLocalizedString("TabBarController.BarItem.Title", comment: "")
-        
         searchBarOutlet.delegate = self
-        //Get items from CoreData
+        //Получаем данные из CoreData
         fetchWords()
     }
     

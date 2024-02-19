@@ -5,7 +5,9 @@
   Created by Nikita Skripka on 06.02.2024.
   
 */
-"TabBarController.BarItem.Title" = "Словарь";
+
+"TabBarController.BarItem[0].Title" = "Повторение";
+"TabBarController.BarItem[1].Title" = "Словарь";
 
 "DictionaryTableViewController.TralingSwipe.DeleteButton" = "Удалить";
 
