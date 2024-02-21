@@ -10,6 +10,9 @@
 "TabBarController.BarItem[1].Title" = "Словарь";
 
 "DictionaryTableViewController.TralingSwipe.DeleteButton" = "Удалить";
+"DictionaryTableViewController.NavigationItem.Title" = "Словарь";
+
+"WordsLevelTableViewController.NavigationItem.Title" = "Уровень английских слов";
 
 "AddEditWordTableViewController.NavigationItem.TitleForEditWord" = "Редактируемое слово";
 "AddEditWordTableViewController.NavigationItem.TitleNewWord" = "Новое слово";

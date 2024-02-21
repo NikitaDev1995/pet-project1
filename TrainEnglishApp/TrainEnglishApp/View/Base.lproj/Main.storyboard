@@ -235,6 +235,9 @@
                                     <segment title="Проверка слов"/>
                                     <segment title="Повторение слов"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeModeCheckWordsSegmentedControlAction:" destination="Y2d-tl-Beb" eventType="valueChanged" id="isp-Cn-FGC"/>
+                                </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wmb-rR-msR">
                                 <rect key="frame" x="0.0" y="174" width="393" height="575"/>
@@ -378,12 +381,18 @@
                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Проверить слово"/>
+                                        <connections>
+                                            <action selector="checkWordButtonAction:" destination="Y2d-tl-Beb" eventType="touchUpInside" id="Lbn-bu-ug3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtE-gQ-pqg">
                                         <rect key="frame" x="111.33333333333333" y="540.66666666666663" width="170.66666666666669" height="34.333333333333371"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Следующее слово"/>
+                                        <connections>
+                                            <action selector="nextWordButtonAction:" destination="Y2d-tl-Beb" eventType="touchUpInside" id="gUx-sH-eBP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -409,12 +418,36 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sCN-6z-Zyx">
-                        <barButtonItem key="rightBarButtonItem" title="Eng" id="XEQ-6M-qdG"/>
+                        <barButtonItem key="rightBarButtonItem" title="Eng" id="XEQ-6M-qdG">
+                            <connections>
+                                <action selector="changeLanguageWordsBarButtonAction:" destination="Y2d-tl-Beb" id="IOi-gm-eog"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="auditStackViewOutlet" destination="Wmb-rR-msR" id="U0A-WP-0j2"/>
+                        <outlet property="languageBarButtonItemOutlet" destination="XEQ-6M-qdG" id="uou-za-DJZ"/>
+                        <outlet property="repeatStackViewOutlet" destination="Wj6-Rw-mlG" id="R6O-Ku-MYc"/>
+                        <outlet property="wordVerificationModeSegmentedControlOutlet" destination="1Hm-tJ-L3H" id="0Vf-Zi-vKt"/>
+                        <outletCollection property="wordCounterLabelOutlet" destination="Au9-fu-rS9" collectionClass="NSMutableArray" id="lXy-rQ-s8J"/>
+                        <outletCollection property="wordCounterLabelOutlet" destination="tSN-AD-qd2" collectionClass="NSMutableArray" id="GX7-ZW-mMW"/>
+                        <outletCollection property="viewForWordImageOutlet" destination="ZzH-z1-Q6Q" collectionClass="NSMutableArray" id="tqd-fg-cbg"/>
+                        <outletCollection property="viewForWordImageOutlet" destination="8CI-wR-r6e" collectionClass="NSMutableArray" id="UJH-Mp-o2i"/>
+                        <outletCollection property="wordImageViewOutlet" destination="LpM-ub-Qnl" collectionClass="NSMutableArray" id="d81-Jt-8k8"/>
+                        <outletCollection property="wordImageViewOutlet" destination="aCO-vj-6tB" collectionClass="NSMutableArray" id="ayi-ZQ-dE2"/>
+                        <outletCollection property="englishWordLabelOutlet" destination="nc3-ba-C7k" collectionClass="NSMutableArray" id="1K6-6s-DqH"/>
+                        <outletCollection property="englishWordLabelOutlet" destination="Tv4-2C-Vd9" collectionClass="NSMutableArray" id="BE9-wQ-lXR"/>
+                        <outletCollection property="russianWordLabelOutlet" destination="oDy-j2-A92" collectionClass="NSMutableArray" id="Dnw-h3-54o"/>
+                        <outletCollection property="russianWordLabelOutlet" destination="52C-M6-Slg" collectionClass="NSMutableArray" id="zk2-2d-VM6"/>
+                        <outletCollection property="checkWordButtonOutlet" destination="Nsk-NY-BYO" collectionClass="NSMutableArray" id="kBS-CD-iQR"/>
+                        <outletCollection property="checkWordButtonOutlet" destination="4Hi-0k-6bO" collectionClass="NSMutableArray" id="DEw-VZ-h07"/>
+                        <outletCollection property="nextWordButtonOutlet" destination="OrS-Ot-8bQ" collectionClass="NSMutableArray" id="gK2-Mo-3S7"/>
+                        <outletCollection property="nextWordButtonOutlet" destination="dtE-gQ-pqg" collectionClass="NSMutableArray" id="ZjA-qn-Mx1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DOL-JJ-A17" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2801" y="-58"/>
+            <point key="canvasLocation" x="2659" y="-58"/>
         </scene>
         <!--Item-->
         <scene sceneID="Aai-et-TwP">
@@ -469,13 +502,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6p-n4-1GL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="E95-oY-f1T" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="699"/>
+            <point key="canvasLocation" x="1679" y="699"/>
         </scene>
         <!--Add Edit Word Table View Controller-->
         <scene sceneID="Phz-ue-Zc2">
             <objects>
                 <tableViewController storyboardIdentifier="AddEditWordTableViewController" id="xqL-h0-tJM" customClass="AddEditWordTableViewController" customModule="TrainEnglishApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hHH-lo-cjl">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="hHH-lo-cjl">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -483,14 +516,14 @@
                             <tableViewSection headerTitle="English word" id="Eo9-7M-z76">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FmW-44-6xT">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="45.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FmW-44-6xT" id="0tv-mV-ylE">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iS-gL-88j">
-                                                    <rect key="frame" x="8" y="7.9999999999999982" width="377" height="29.333333333333329"/>
+                                                    <rect key="frame" x="8" y="8" width="377" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -511,14 +544,14 @@
                             <tableViewSection headerTitle="Russian word" id="1ml-1K-hPj">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sJQ-i0-tSi">
-                                        <rect key="frame" x="0.0" y="173.33333206176758" width="393" height="45"/>
+                                        <rect key="frame" x="0.0" y="156.33333015441895" width="393" height="45.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sJQ-i0-tSi" id="Pje-sN-FC8">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SB3-7m-T1I">
-                                                    <rect key="frame" x="8" y="8" width="377" height="29"/>
+                                                    <rect key="frame" x="8" y="8.0000000000000018" width="377" height="29.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -539,7 +572,7 @@
                             <tableViewSection headerTitle="English level word" id="MKo-nm-VOH">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TEt-iI-LvF">
-                                        <rect key="frame" x="0.0" y="296.33333206176758" width="393" height="41.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="257.99999809265137" width="393" height="41.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TEt-iI-LvF" id="3tO-zU-Uq1">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="41.333332061767578"/>
@@ -573,7 +606,7 @@
                             <tableViewSection headerTitle="Image for word" id="YlR-0n-Uie">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="Qdd-vP-L9e">
-                                        <rect key="frame" x="0.0" y="415.66666412353516" width="393" height="200"/>
+                                        <rect key="frame" x="0.0" y="355.33333015441895" width="393" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qdd-vP-L9e" id="m6C-mz-z3Q">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
@@ -609,14 +642,14 @@
                             <tableViewSection headerTitle="Choose the image" id="ro2-tf-QHU">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="o03-Bd-eA7">
-                                        <rect key="frame" x="0.0" y="693.66666412353516" width="393" height="45"/>
+                                        <rect key="frame" x="0.0" y="611.33333015441895" width="393" height="44.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o03-Bd-eA7" id="M5e-PP-5rQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ps-5r-ssL">
-                                                    <rect key="frame" x="15" y="5" width="363" height="35"/>
+                                                    <rect key="frame" x="15" y="5" width="363" height="34.666666666666664"/>
                                                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
@@ -709,7 +742,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXO-uO-zq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-353" y="-58"/>
+            <point key="canvasLocation" x="-146" y="-58"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Rh-aj-kZH">
@@ -731,7 +764,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="y2d-JB-6Sx"/>
+        <segue reference="ce7-Yw-4tg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Unknown" width="1200" height="1200"/>
