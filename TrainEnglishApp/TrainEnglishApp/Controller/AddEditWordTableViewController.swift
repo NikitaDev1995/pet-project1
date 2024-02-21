@@ -28,7 +28,7 @@ class AddEditWordTableViewController: UITableViewController {
         russianWordTextFieldOutlet.delegate = self
         englishWordTextFieldOutlet.delegate = self
         
-        configureViewAppearance()
+        configureAddEditWordTableViewController()
         
         if let word {
             navigationItem.title = NSLocalizedString("AddEditWordTableViewController.NavigationItem.TitleForEditWord", comment: "")
@@ -65,7 +65,7 @@ class AddEditWordTableViewController: UITableViewController {
     }
     
     //MARK: - Methods
-    private func configureViewAppearance() {
+    private func configureAddEditWordTableViewController() {
         navigationItem.leftBarButtonItem?.title = NSLocalizedString("AddEditWordTableViewController.NavigationItem.CancelButton", comment: "")
         navigationItem.rightBarButtonItem?.title = NSLocalizedString("AddEditWordTableViewController.NavigationItem.SaveButton", comment: "")
         
