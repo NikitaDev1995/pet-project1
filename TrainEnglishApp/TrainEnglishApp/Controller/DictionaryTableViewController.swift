@@ -158,12 +158,21 @@ extension DictionaryTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let word = words[indexPath.row]
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let addEditTableViewController = storyboard.instantiateViewController(identifier: "AddEditWordTableViewController") as? AddEditWordTableViewController
-        addEditTableViewController?.word = word
-        self.navigationController?.pushViewController(addEditTableViewController ?? UITableViewController(), animated: true)
+        if isSearching {
+            let filteredWord = filteredWords[indexPath.row]
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let addEditTableViewController = storyboard.instantiateViewController(identifier: "AddEditWordTableViewController") as? AddEditWordTableViewController
+            addEditTableViewController?.word = filteredWord
+            self.navigationController?.pushViewController(addEditTableViewController ?? UITableViewController(), animated: true)
+        } else {
+            let word = words[indexPath.row]
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let addEditTableViewController = storyboard.instantiateViewController(identifier: "AddEditWordTableViewController") as? AddEditWordTableViewController
+            addEditTableViewController?.word = word
+            self.navigationController?.pushViewController(addEditTableViewController ?? UITableViewController(), animated: true)
+        }
     }
     
     
@@ -176,9 +185,10 @@ extension DictionaryTableViewController {
                 
             } else {
                 let wordToRemove = self.words[indexPath.row]
+                //Удаляем слово из отображаемой таблицы
                 words.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
-                //Удаляем слово
+                //Удаляем слово из CoreData
                 AppDelegate.context.delete(wordToRemove)
                 //Сохраняем данные
                 do{
