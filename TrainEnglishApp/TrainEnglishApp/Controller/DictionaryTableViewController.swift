@@ -179,10 +179,7 @@ extension DictionaryTableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if isSearching {
-                
                 deleteWord(at: indexPath)
-                
-                
             } else {
                 let wordToRemove = self.words[indexPath.row]
                 //Удаляем слово из отображаемой таблицы

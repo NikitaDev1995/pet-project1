@@ -15,6 +15,7 @@ class TabBarController: UITabBarController {
         configureTabBarController()
     }
     
+    //MARK: - Methods
     private func configureTabBarController() {
         tabBar.items?[0].title = NSLocalizedString("TabBarController.BarItem[0].Title", comment: "")
         tabBar.items?[0].image = UIImage(systemName: "list.clipboard.fill")
