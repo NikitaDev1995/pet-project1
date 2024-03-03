@@ -335,7 +335,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CI-wR-r6e">
                                         <rect key="frame" x="105.66666666666667" y="54.000000000000014" width="181.66666666666663" height="181.33333333333337"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown" translatesAutoresizingMaskIntoConstraints="NO" id="aCO-vj-6tB">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown" translatesAutoresizingMaskIntoConstraints="NO" id="aCO-vj-6tB">
                                                 <rect key="frame" x="0.0" y="0.0" width="181.66666666666666" height="181.33333333333334"/>
                                             </imageView>
                                         </subviews>
@@ -386,7 +386,6 @@
                                     </stackView>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Hi-0k-6bO">
                                         <rect key="frame" x="115.33333333333333" y="476.66666666666663" width="162.33333333333337" height="34.333333333333314"/>
-                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Проверить слово"/>
                                         <connections>
@@ -395,7 +394,6 @@
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtE-gQ-pqg">
                                         <rect key="frame" x="111.33333333333333" y="540.66666666666663" width="170.66666666666669" height="34.333333333333371"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Следующее слово"/>
                                         <connections>
@@ -524,14 +522,14 @@
                             <tableViewSection headerTitle="English word" id="Eo9-7M-z76">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FmW-44-6xT">
-                                        <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="45"/>
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="45.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FmW-44-6xT" id="0tv-mV-ylE">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iS-gL-88j">
-                                                    <rect key="frame" x="8" y="8" width="377" height="29"/>
+                                                    <rect key="frame" x="8" y="7.9999999999999982" width="377" height="29.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -552,14 +550,14 @@
                             <tableViewSection headerTitle="Russian word" id="1ml-1K-hPj">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sJQ-i0-tSi">
-                                        <rect key="frame" x="0.0" y="156.33333015441895" width="393" height="45.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="156.66666221618652" width="393" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sJQ-i0-tSi" id="Pje-sN-FC8">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SB3-7m-T1I">
-                                                    <rect key="frame" x="8" y="8.0000000000000018" width="377" height="29.666666666666671"/>
+                                                    <rect key="frame" x="8" y="8" width="377" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -580,7 +578,7 @@
                             <tableViewSection headerTitle="English level word" id="MKo-nm-VOH">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TEt-iI-LvF">
-                                        <rect key="frame" x="0.0" y="257.99999809265137" width="393" height="41.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="257.66666221618652" width="393" height="41.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TEt-iI-LvF" id="3tO-zU-Uq1">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="41.333332061767578"/>
@@ -614,7 +612,7 @@
                             <tableViewSection headerTitle="Image for word" id="YlR-0n-Uie">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="Qdd-vP-L9e">
-                                        <rect key="frame" x="0.0" y="355.33333015441895" width="393" height="200"/>
+                                        <rect key="frame" x="0.0" y="354.9999942779541" width="393" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qdd-vP-L9e" id="m6C-mz-z3Q">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
@@ -650,14 +648,14 @@
                             <tableViewSection headerTitle="Choose the image" id="ro2-tf-QHU">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="o03-Bd-eA7">
-                                        <rect key="frame" x="0.0" y="611.33333015441895" width="393" height="44.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="610.9999942779541" width="393" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o03-Bd-eA7" id="M5e-PP-5rQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ps-5r-ssL">
-                                                    <rect key="frame" x="15" y="5" width="363" height="34.666666666666664"/>
+                                                    <rect key="frame" x="15" y="5" width="363" height="35"/>
                                                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
@@ -776,9 +774,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Unknown" width="1200" height="1200"/>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

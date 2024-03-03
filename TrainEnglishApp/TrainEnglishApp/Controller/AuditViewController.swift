@@ -8,7 +8,7 @@
 import UIKit
 
 class AuditViewController: UIViewController {
-
+    
     //MARK: - @IBOutlets
     @IBOutlet weak var wordVerificationModeSegmentedControlOutlet: UISegmentedControl!
     @IBOutlet weak var languageBarButtonItemOutlet: UIBarButtonItem!
@@ -32,12 +32,18 @@ class AuditViewController: UIViewController {
     //MARK: - Scene life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureAuditViewController()
     }
     
     //MARK: - Methods
     private func configureAuditViewController() {
+        wordVerificationModeSegmentedControlOutlet.setTitle(NSLocalizedString("AuditViewController.SegmentedControl.Segment[0]", comment: ""), forSegmentAt: 0)
+        wordVerificationModeSegmentedControlOutlet.setTitle(NSLocalizedString("AuditViewController.SegmentedControl.Segment[1]", comment: ""), forSegmentAt: 1)
+        
+        wordCounterLabelOutlet[0].text = NSLocalizedString("AuditViewController.WordCounterLabel", comment: "") +  "\(wordsArray.count)"
+        wordCounterLabelOutlet[1].text = NSLocalizedString("AuditViewController.WordCounterLabel", comment: "") +  "\(repeatWordsArray.count)"
+        
         repeatStackViewOutlet.isHidden = true
         russianWordLabelOutlet.forEach { wordLabel in
             wordLabel.layer.cornerRadius = 10
@@ -52,13 +58,30 @@ class AuditViewController: UIViewController {
             wordLabel.layer.borderColor = UIColor.gray.cgColor
         }
         
+        viewForWordImageOutlet.forEach { viewForImage in
+            viewForImage.layer.cornerRadius = 10
+            viewForImage.layer.borderWidth = 2
+            viewForImage.layer.borderColor = UIColor.gray.cgColor
+            viewForImage.clipsToBounds = true
+        }
+        
+        wordImageViewOutlet.forEach { imageView in
+            imageView.clipsToBounds = true
+            imageView.contentMode = .scaleAspectFill
+        }
+        
+        checkWordButtonOutlet[0].setTitle(NSLocalizedString("AuditViewController.CheckWordButton.Title.TextForTheFirstTap", comment: ""), for: .normal)
+        nextWordButtonOutlet[0].setTitle(NSLocalizedString("AuditViewController.NextWordButton.Title.Text", comment: ""), for: .normal)
+        checkWordButtonOutlet[1].setTitle(NSLocalizedString("AuditViewController.CheckWordButton.Title.TextForTheFirstTap", comment: ""), for: .normal)
+        nextWordButtonOutlet[1].setTitle(NSLocalizedString("AuditViewController.NextWordButton.Title.Text", comment: ""), for: .normal)
+        
         wordsArray.shuffle()
         checkWordButtonOutlet[0].isEnabled = false
-        wordCounterLabelOutlet[0].text = "Осталось слов: \(wordsArray.count)"
     }
+    
     //MARK: - @IBActions
     @IBAction func changeLanguageWordsBarButtonAction(_ sender: UIBarButtonItem) {
-    
+        
     }
     
     @IBAction func changeModeCheckWordsSegmentedControlAction(_ sender: UISegmentedControl) {
@@ -78,12 +101,11 @@ class AuditViewController: UIViewController {
         switch sender.tag {
         case 0:
             self.russianWordLabelOutlet[0].textColor = .red
-            if sender.titleLabel?.text == "Запомнить слово?" {
+            if sender.titleLabel?.text == NSLocalizedString("AuditViewController.CheckWordButton.Title.TextForTheSecondTap", comment: "") {
                 repeatWordsArray.append(wordForRepeat ?? WordEntity())
-                sender.setTitle("Проверить слово", for: .normal)
                 sender.isEnabled = false
             } else {
-                sender.setTitle("Запомнить слово?", for: .normal)
+                sender.setTitle(NSLocalizedString("AuditViewController.CheckWordButton.Title.TextForTheSecondTap", comment: ""), for: .normal)
             }
         case 1:
             self.russianWordLabelOutlet[1].textColor = .red
@@ -98,11 +120,11 @@ class AuditViewController: UIViewController {
         checkWordButtonOutlet[0].isEnabled = true
         switch sender.tag {
         case 0:
-            checkWordButtonOutlet[0].setTitle("Проверить слово", for: .normal)
+            checkWordButtonOutlet[0].setTitle(NSLocalizedString("AuditViewController.CheckWordButton.Title.TextForTheFirstTap", comment: ""), for: .normal)
             russianWordLabelOutlet[0].textColor = .white
             if indexForWordsArray < wordsArray.count {
                 let checkWord = wordsArray[indexForWordsArray]
-                wordCounterLabelOutlet[0].text = "Осталось слов: \(wordsArray.count - indexForWordsArray)"
+                wordCounterLabelOutlet[0].text = NSLocalizedString("AuditViewController.WordCounterLabel", comment: "") + "\(wordsArray.count - indexForWordsArray)"
                 englishWordLabelOutlet[0].text = checkWord.englishWord
                 russianWordLabelOutlet[0].text = checkWord.russianWord
                 wordImageViewOutlet[0].image = UIImage(data: checkWord.wordImage ?? Data())
@@ -112,7 +134,7 @@ class AuditViewController: UIViewController {
                 checkWordButtonOutlet[0].isEnabled = false
                 repeatWordsArray.removeAll()
                 indexForWordsArray = 0
-                wordCounterLabelOutlet[0].text = "Осталось слов: 0"
+                wordCounterLabelOutlet[0].text = NSLocalizedString("AuditViewController.WordCounterLabel", comment: "") + "0"
                 englishWordLabelOutlet[0].text = "Все слова повторены"
                 russianWordLabelOutlet[0].text = "All words were checked"
                 wordsArray.shuffle()
@@ -122,14 +144,14 @@ class AuditViewController: UIViewController {
             russianWordLabelOutlet[1].textColor = .white
             if indexForRepeatWordsArray < repeatWordsArray.count {
                 let repeatWord = repeatWordsArray[indexForRepeatWordsArray]
-                wordCounterLabelOutlet[1].text = "Осталось слов: \(repeatWordsArray.count - indexForRepeatWordsArray)"
+                wordCounterLabelOutlet[1].text = NSLocalizedString("AuditViewController.WordCounterLabel", comment: "") + "\(repeatWordsArray.count - indexForRepeatWordsArray)"
                 englishWordLabelOutlet[1].text = repeatWord.englishWord
                 russianWordLabelOutlet[1].text = repeatWord.russianWord
                 wordImageViewOutlet[1].image = UIImage(data: repeatWord.wordImage ?? Data())
                 indexForRepeatWordsArray += 1
             } else {
                 indexForRepeatWordsArray = 0
-                wordCounterLabelOutlet[1].text = "Осталось слов: 0"
+                wordCounterLabelOutlet[1].text = NSLocalizedString("AuditViewController.WordCounterLabel", comment: "") + "0"
                 englishWordLabelOutlet[1].text = "Все слова повторены"
                 russianWordLabelOutlet[1].text = "All words were checked"
             }

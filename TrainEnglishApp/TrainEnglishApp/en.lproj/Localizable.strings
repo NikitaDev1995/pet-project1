@@ -9,10 +9,17 @@
 "TabBarController.BarItem[0].Title" = "Audit";
 "TabBarController.BarItem[1].Title" = "Dictionary";
 
+"WordsLevelTableViewController.NavigationItem.Title" = "The level of English words";
+
+"AuditViewController.SegmentedControl.Segment[0]" = "Words verification";
+"AuditViewController.SegmentedControl.Segment[1]" = "Repeat the words";
+"AuditViewController.WordCounterLabel" = "The remaining words: ";
+"AuditViewController.CheckWordButton.Title.TextForTheFirstTap" = "Check the word";
+"AuditViewController.CheckWordButton.Title.TextForTheSecondTap" = "Repeat the word?";
+"AuditViewController.NextWordButton.Title.Text" = "Next word";
+
 "DictionaryTableViewController.TralingSwipe.DeleteButton" = "Delete";
 "DictionaryTableViewController.NavigationItem.Title" = "Dictionary";
-
-"WordsLevelTableViewController.NavigationItem.Title" = "The level of English words";
 
 "AddEditWordTableViewController.NavigationItem.TitleForEditWord" = "New word";
 "AddEditWordTableViewController.NavigationItem.TitleNewWord" = "Editing word";

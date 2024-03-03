@@ -9,10 +9,17 @@
 "TabBarController.BarItem[0].Title" = "Повторение";
 "TabBarController.BarItem[1].Title" = "Словарь";
 
+"WordsLevelTableViewController.NavigationItem.Title" = "Уровень английских слов";
+
+"AuditViewController.SegmentedControl.Segment[0]" = "Проверка слов";
+"AuditViewController.SegmentedControl.Segment[1]" = "Повторение слов";
+"AuditViewController.WordCounterLabel" = "Осталось слов:" ;
+"AuditViewController.CheckWordButton.Title.TextForTheFirstTap" = "Проверить слово";
+"AuditViewController.CheckWordButton.Title.TextForTheSecondTap" = "Повторить слово?";
+"AuditViewController.NextWordButton.Title.Text" = "Следующее слово";
+
 "DictionaryTableViewController.TralingSwipe.DeleteButton" = "Удалить";
 "DictionaryTableViewController.NavigationItem.Title" = "Словарь";
-
-"WordsLevelTableViewController.NavigationItem.Title" = "Уровень английских слов";
 
 "AddEditWordTableViewController.NavigationItem.TitleForEditWord" = "Редактируемое слово";
 "AddEditWordTableViewController.NavigationItem.TitleNewWord" = "Новое слово";
